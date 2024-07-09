@@ -1,0 +1,10 @@
+*{
+    background-color: aqua;
+}
+body{
+    
+    align-self: center;
+    display:inline-block;
+    justify-content: center;
+
+}
