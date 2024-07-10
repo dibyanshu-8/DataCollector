@@ -13,7 +13,8 @@ def index():
 def success():
     if request.method == 'POST':
         email=request.form["email_name"]
-        print(request.form)
+        height=request.form["height_name"]
+        print(email,height)
         return render_template('success.html')
 
 
