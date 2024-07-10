@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app=Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://pgadmin4:postgres@localhost/Height_collector' #Dictionary key-value pairs so that our app knows where to look for the database.
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:postgres@localhost/Height_collector' #Dictionary key-value pairs so that our app knows where to look for the database.
 db=SQLAlchemy(app)
 
 class Data(db.Model):
