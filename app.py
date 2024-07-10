@@ -30,6 +30,8 @@ def success():
         email=request.form["email_name"]
         height=request.form["height_name"]
         print(email,height)
+        db.session.add(email,height)
+        db.session.commit()
         return render_template('success.html')
 
 
