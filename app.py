@@ -9,7 +9,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/success')
+@app.route('/success',methods=['POST'])
 def success():
     return render_template('success.html')
 
