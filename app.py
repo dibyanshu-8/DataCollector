@@ -29,7 +29,7 @@ def success():
         email = request.form["email_name"]
         height = request.form["height_name"]
         print(email, height)
-        send_email(email,height)
+        
         if db.session.query(Data).filter(Data.email_ == email).count()==0:
             
             data = Data(email, height)
@@ -40,6 +40,8 @@ def success():
                 average_height=db.session.query(func.avg(Data.height_)).scalar()
                 average_height=round(average_height,1)
                 print(average_height)
+                send_email(email,height,average_height)
+               
             return render_template('success.html')
     return render_template('index.html',text="Seems like u have entered the email already !!")
 
