@@ -37,7 +37,7 @@ def success():
                 db.create_all()  # Create database tables if they don't exist
                 db.session.add(data)
                 db.session.commit()
-                average_height=db.session.query()
+                average_height=db.session.query(functions.avg(Data.height_))
             return render_template('success.html')
     return render_template('index.html',text="Seems like u have entered the email already !!")
 
