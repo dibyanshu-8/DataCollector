@@ -40,8 +40,9 @@ def success():
                 average_height=db.session.query(func.avg(Data.height_)).scalar()
                 average_height=round(average_height,1)
                 count=db.session.query(Data.height).count()
+                print(count)
                 print(average_height)
-                send_email(email,height,average_height)
+                send_email(email,height,average_height,count)
                
             return render_template('success.html')
     return render_template('index.html',text="Seems like u have entered the email already !!")
