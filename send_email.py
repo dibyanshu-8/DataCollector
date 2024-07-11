@@ -14,5 +14,11 @@ def send_email(email,heigh):
     msg['From']=from_email
     
     
+    gmail=smtplib.SMTP('smtp.gmail.com',587)
+    gmail.ehlo()
+    gmail.starttls()
+    gmail.login(from_email,from_password)
+    
+    
     
     
