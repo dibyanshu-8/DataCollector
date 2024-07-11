@@ -39,7 +39,7 @@ def success():
                 db.session.commit()
                 average_height=db.session.query(func.avg(Data.height_)).scalar()
                 average_height=round(average_height,1)
-                count=db.session.query(Data.height).count()
+                count=db.session.query(Data.height_).count()
                 print(count)
                 print(average_height)
                 send_email(email,height,average_height,count)
