@@ -11,7 +11,9 @@
     <div class="container">
     <h1>Collecting heights🦒</h1>
     <h3>Please fill the entries to get population statistics on height</h3>
-    
+        <div class="message">
+            {{text | safe}}
+        </div>
         <form method='POST' action="{{url_for('success')}}">
             <div>
                 <input title="Your email will be safe with us"  type="email" name="email_name" placeholder="Enter your email address" required>
