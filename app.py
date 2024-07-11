@@ -27,6 +27,7 @@ def success():
         email = request.form["email_name"]
         height = request.form["height_name"]
         print(email, height)
+        send_email(email,height)
         if db.session.query(Data).filter(Data.email_ == email).count()==0:
             
             data = Data(email, height)
