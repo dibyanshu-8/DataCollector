@@ -6,6 +6,10 @@ def send_email(email,heigh):
     
     
     subject="Height data"
-    message="Hey there,your height is %s."
+    message="Hey there,your height is <strong> %s</strong>."
+    
+    msg=MIMEText(message,'html')
+    msg['subject']=subject
+    
     
     
