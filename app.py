@@ -27,12 +27,15 @@ def success():
         email = request.form["email_name"]
         height = request.form["height_name"]
         print(email, height)
-        data = Data(email, height)
-        with app.app_context():
-            db.create_all()  # Create database tables if they don't exist
-            db.session.add(data)
-            db.session.commit()
-        return render_template('success.html')
+        if db.session.query(Data).filter(Data.email_ == email).count()==0:
+            
+            data = Data(email, height)
+            with app.app_context():
+                db.create_all()  # Create database tables if they don't exist
+                db.session.add(data)
+                db.session.commit()
+            return render_template('success.html')
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
