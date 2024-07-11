@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from send_email import send_email
-from sqlalchemy.sql import functions
+from sqlalchemy.sql import func
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:dibyanshu69@localhost/height_data'
@@ -37,7 +37,8 @@ def success():
                 db.create_all()  # Create database tables if they don't exist
                 db.session.add(data)
                 db.session.commit()
-                average_height=db.session.query(functions.avg(Data.height_))
+                average_height=db.session.query(func.avg(Data.height_)).scalar()
+                average_height=round(average_height,1)
                 print(average_height)
             return render_template('success.html')
     return render_template('index.html',text="Seems like u have entered the email already !!")
