@@ -35,7 +35,7 @@ def success():
                 db.session.add(data)
                 db.session.commit()
             return render_template('success.html')
-    return render_template('index.html',text="seems like u have entered the email already")
+    return render_template('index.html',text="Seems like u have entered the email already !!")
 
 if __name__ == "__main__":
     app.run(debug=True)
